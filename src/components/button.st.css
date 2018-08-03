@@ -1,0 +1,26 @@
+.root {
+    background: #333;
+    border: none;
+    appearance: none;
+    padding: .5em;
+    width: 3em;
+    color: #FFF;
+    font-family: monospace;
+    transition: inherit;
+    transition-duration: 300ms;
+    font-size: inherit;
+    user-select: none;
+    cursor: pointer;
+}
+
+.root:hover,
+.root:focus {
+    background: #981;
+    outline: none;
+}
+
+.root:active {
+    outline: none;
+    transform: translateY(.25em); 
+    transition-duration: 100ms;
+}
