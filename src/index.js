@@ -16,14 +16,3 @@ const bind = (rootComponent, renderTarget) => {
 }
 
 bind(Container, document.getElementById("app"));
-
-// Webpack HMR
-if (module && module.hot) {
-    module.hot.accept([
-        "./components/container",
-        "./components/container.st.css",
-        "./components/button.st.css"
-    ], () => {
-        bind(Container, document.getElementById("app"));
-    });
-}

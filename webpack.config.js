@@ -1,4 +1,4 @@
-const StylableWebpackPlugin = require('stylable-webpack-plugin');
+const StylableWebpackPlugin = require('@stylable/webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
@@ -6,7 +6,7 @@ module.exports = {
     mode: "development",
     plugins: [
         new StylableWebpackPlugin({
-            rootScope: false
+            experimentalHMR: true
         }),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
