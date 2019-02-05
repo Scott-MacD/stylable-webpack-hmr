@@ -1,8 +1,8 @@
 import style from "./button.st.css";
 
-export default (render, action) => {
+export default (render, type, action) => {
 
-    return ({title, text}) =>
-        render`<button class=${style.root} title=${title} onclick=${action}>${text}</button>`;
+    return ({title}) =>
+        render`<button class=${style[type]} title=${title} onclick=${action}></button>`;
 
 }

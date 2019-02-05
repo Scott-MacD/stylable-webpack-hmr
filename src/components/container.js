@@ -6,16 +6,16 @@ import button from "./button";
 
 export default (render, dispatch) => {
 
-    const renderIncrement = button(wire(), e => dispatch(CTRLS.INCREMENT));
-    const renderDecrement = button(wire(), e => dispatch(CTRLS.DECREMENT));
+    const renderIncrement = button(wire(), "increment", e => dispatch(CTRLS.INCREMENT));
+    const renderDecrement = button(wire(), "decrement", e => dispatch(CTRLS.DECREMENT));
 
     return ({specialNumber}) => render`
 
         <h1 class=${style.heading}>The number is: ${specialNumber}</h1>
 
         <nav class=${style.ctrls}>
-            ${renderDecrement({title: "Decrease number", text: "--"})}
-            ${renderIncrement({title: "Increase number", text: "++"})}
+            ${renderDecrement({title: "Decrease number"})}
+            ${renderIncrement({title: "Increase number"})}
         </nav>
     `;
 

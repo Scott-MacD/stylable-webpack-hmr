@@ -4,22 +4,23 @@ import hyperHTML from "hyperhtml";
 let update;
 
 const state = {specialNumber: 7};
-const dispatch = (action, payload) => {
-    action(state, payload);
+
+function init() {
+    const render = hyperHTML.bind(document.getElementById("app"));
+    
+    function dispatch(action, payload) {
+        action(state, payload);
+        update(state);
+    }
+
+    update = Container(render, dispatch);
+
     update(state);
 }
 
-const bind = (rootComponent, renderTarget) => {
-    const render = hyperHTML.bind(renderTarget);
-    update = rootComponent(render, dispatch);
-    update(state);
-}
-
-bind(Container, document.getElementById("app"));
+init();
 
 // Webpack HMR
 if (module && module.hot) {
-    module.hot.accept("./components/container", () => {
-        bind(Container, document.getElementById("app"));
-    });
+    module.hot.accept(init);
 } 

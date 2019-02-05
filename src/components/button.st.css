@@ -1,4 +1,4 @@
-.root {
+.button {
     background: #333;
     border: none;
     appearance: none;
@@ -13,14 +13,34 @@
     cursor: pointer;
 }
 
-.root:hover,
-.root:focus {
+.button:hover,
+.button:focus {
     background: #981;
     outline: none;
 }
 
-.root:active {
+.button:active {
     outline: none;
     transform: translateY(.25em); 
     transition-duration: 100ms;
+}
+
+/* If you comment out -st-extends, the button won't be updated unless you
+   make a change to button.js, or reload the browser */
+.increment {
+    -st-extends: button;
+    background: #3A8;
+}
+
+.increment::before {
+    content: "++";
+}
+
+.decrement {
+    -st-extends: button;
+    background: #B42;
+}
+
+.decrement::before {
+    content: "--";
 }
