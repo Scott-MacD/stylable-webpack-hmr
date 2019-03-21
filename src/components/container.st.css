@@ -1,5 +1,10 @@
 .heading {
+    -st-states: negative;
     color: #645;
+}
+
+.heading:negative {
+    color: red;
 }
 
 .ctrls {

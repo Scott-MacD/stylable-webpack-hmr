@@ -1,6 +1,6 @@
 import {wire} from "hyperhtml";
 
-import style from "./container.st.css";
+import {style, classes as st} from "./container.st.css";
 import CTRLS from "../actions/numberCtrls";
 import button from "./button";
 
@@ -11,9 +11,11 @@ export default (render, dispatch) => {
 
     return ({specialNumber}) => render`
 
-        <h1 class=${style.heading}>The number is: ${specialNumber}</h1>
+        <h1 class=${style(st.heading, {negative: specialNumber < 0})}>
+            The number is: ${specialNumber}
+        </h1>
 
-        <nav class=${style.ctrls}>
+        <nav class=${st.ctrls}>
             ${renderDecrement({title: "Decrease number"})}
             ${renderIncrement({title: "Increase number"})}
         </nav>
