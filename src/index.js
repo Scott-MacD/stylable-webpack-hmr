@@ -3,7 +3,7 @@ import hyperHTML from "hyperhtml";
 
 let update;
 
-const state = {specialNumber: 7};
+window.state = window.state || {specialNumber: 7};
 
 function init() {
     const render = hyperHTML.bind(document.getElementById("app"));
